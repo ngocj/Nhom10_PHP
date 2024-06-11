@@ -24,11 +24,7 @@ $sql1 = "SELECT * FROM tbl_sanpham LIMIT $limit OFFSET $offset";
 $query1 = $conn->query($sql1);
 
 
-
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,25 +45,27 @@ $query1 = $conn->query($sql1);
     <div class=" mx-32 container">
     <div class="w-4/6 my-8">
    <a href="../DAL/ADDSP.php" style="float:left;">
-        <button class=" bg-yellow-500 w-32 h-10 rounded-lg  ">Them  🐼 </button>
+        <button class=" bg-yellow-500 w-32 h-10 rounded-lg  ">Them🐼</button>
         </a>
      
-       <select  style="float:right;" name="sapxep" class="bg-emerald-500 w-40 h-10 rounded-lg " >
-        <option>Sap xep gia tang</option>
-        <option>Sap xep gia giam</option>
-       </select>
-
-   <form method="GET" style="float:right;" class="mx-10">
+       <form method="GET" action="Sapxep.php">
+    <select name="sapxep" class="bg-emerald-500 w-40 h-10 rounded-lg ">
+        <option value="gia_asc">Gia tang dan</option>
+        <option value="gia_desc">Gia giam dan</option>
+        <option value="soluong_asc">So luong tang dan</option>
+        <option value="soluong_desc">So luong giam dan</option>
+    </select>
+    <input type="submit" class="bg-blue-400  w-24 h-10 rounded-lg" value="Sắp xếp">
+      </form>
+            
+        <form method="GET" action="ADtimkiem.php" style="float:right;" class="mx-10">
           <input type="text" class="w-48 h-10  rounded-lg border-2 " name="search" placeholder="Tim kiem....">
-          <button type="submit" class="w-24 h-10 rounded-lg bg-green-400" name="btnSearch" >Tim kiem</button>
+          <button type="submit" class="w-24 h-10 rounded-lg bg-green-400" >Tim kiem</button>
         </form>
+        
     </div>
      
-
-     
-   
-
-        
+      
     <table class="table-auto border-collapse border border-slate-400 w-4/5 text-bold" >
   <thead>
     <tr class="bg-red-300 w-40 h-14  ">
@@ -82,6 +80,8 @@ $query1 = $conn->query($sql1);
     </tr>
   </thead>
   <tbody>
+  
+
     <?php while($row=mysqli_fetch_array($query1)): ?>
     <tr>
       <td class="text-center"> <?= $row['id_sanpham']?>   </td>
@@ -93,7 +93,7 @@ $query1 = $conn->query($sql1);
       <td class="text-center"><?= $row['giasanpham']?></td>
       <td class="text-center">
 
-        <?php echo ($row['soluong']>=1?$row['soluong']:"<button class='w-24 bg-red-500 rounded-xl'>Hết hàng</button>")     ?>
+        <?php echo ($row['soluong']>=1?$row['soluong']:"<button class='w-24 bg-red-500 rounded-xl'>Hết hàng</button>")?>
       
       </td>
       <td class="text-center">     
@@ -106,7 +106,7 @@ $query1 = $conn->query($sql1);
     </td>
       <td  class="text-center">
         <div>
-        <a  href="../DAL/SUASP.php?id=1">
+        <a  href="../DAL/SUASP.php?id=<?=$row['id_sanpham']?>">
               <button class="bg-green-400 w-24 hover:bg-yellow-600 rounded-full"> Sua</button>
         </a>
         </div>

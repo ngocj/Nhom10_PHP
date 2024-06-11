@@ -11,6 +11,7 @@ $tomtat="";
 $noidung="";
 $id_danhmuc="";
 $trangthai="";
+$errors = array(); 
 if(isset($_POST['btnAdd'])){
     $ten_sp=$_POST['tensp'];
     $ma_sp=$_POST['masp'];
@@ -18,21 +19,23 @@ if(isset($_POST['btnAdd'])){
     $soluong=(int)$_POST['soluong'];
     $tomtat=$_POST['tomtat'];
     $noidung=$_POST['noidung'];
-    $id_danhmuc=(int)$_POST['IDdanhmuc'];
-    $trangthai=$_POST['trangthai'];
-   if(isset($_FILES['hinhanh'])){
+    $id_danhmuc=(int)$_POST['id_danhmuc'];
+    $trangthai=(int)$_POST['trangthai'];
+  if(isset($_FILES['hinhanh'])){
+      $hinhanh=$_FILES['hinhanh']['name'];
+      $target_path = '../GUI/images/'.$hinhanh;
     if($_FILES['hinhanh']['size']==0){
-        echo "<p>Ban chua chon hinh anh</p>";
-    }else{
-        $hinhanh=$_FILES['hinhanh']['name'];
-        move_uploaded_file($_FILES['hinhanh']['tmp_name'],'../GUI/images/'.$_FILES['hinhanh']['name']);
+         $errors[] = "Bạn chưa chọn hình ảnh"; 
+    } else if (file_exists($target_path)) {
+        $errors[] = "Hình ảnh đã tồn tại";
+    } else {
+        move_uploaded_file($_FILES['hinhanh']['tmp_name'], $target_path);        
+        }  
     }
 
    }
    
-}
-
-if($gia_sp>0&&$soluong>0&&!empty($ten_sp) && $id_danhmuc>0&& $trangthai>=0 && !empty($hinhanh) && !empty($ma_sp)&& !empty($tomtat)&& !empty($noidung)&& !empty($trangthai)){
+if($gia_sp>0&&$soluong>=0&&!empty($ten_sp) && $id_danhmuc>0&& $trangthai>-1 && empty($errors) && !empty($ma_sp)&& !empty($tomtat)&& !empty($noidung)){
 $sql="INSERT INTO tbl_sanpham VALUES('','$ten_sp','$ma_sp','$gia_sp','$soluong','$hinhanh','$tomtat','$noidung','$id_danhmuc','$trangthai')";
 $query=$conn->query($sql);
 if($query){
@@ -68,8 +71,10 @@ if($query){
     
 </head>
 <body>
-    <form method="POST" action="" enctype="multipart/form-data">
-    <table border="1" class="" style="width: 600px;margin: 5px auto;text-align: center;">
+       <h2>Trang them san pham moi</h2>
+    <a href="../GUI/ADsanpham.php">Quay lai trang truoc</a>
+    <form method="POST" action="" enctype="multipart/form-data" >
+    <table border="1" style="width: 600px;margin: 5px auto;text-align: center;">
     <tr>
         <td class="text-2xl">Ten san pham</td>
         <td>
@@ -87,7 +92,7 @@ if($query){
      <tr>
         <td>Gia san pham</td>
         <td>
-              <input type="text" name="giasp" >
+              <input type="number" min=1 name="giasp" >
         </td>
     </tr>
      <tr>
@@ -95,13 +100,14 @@ if($query){
             So luong
         </td>
         <td>
-            <input type="text" name="soluong" >
+            <input type="number" min=1 name="soluong" >
         </td>
     </tr>
      <tr>
         <td>Hinh anh</td>
         <td>
             <input type="file" name="hinhanh">
+            <span><?php foreach($errors as $item ){ echo "<p style='color:red'>$item</p>";} ?></span>
         </td>
     </tr>
      <tr>
@@ -118,14 +124,27 @@ if($query){
     </tr>
      <tr>
         <td>ID danh muc</td>
-        <td>
-              <input type="text" name="IDdanhmuc" >
+        <<td>
+            
+               <select name="id_danhmuc" style="width:80%;height:50px">
+                <?php
+                $sql3="SELECT * FROM tbl_danhmuc";
+                $query3=$conn->query($sql3);
+                while($row3=mysqli_fetch_array($query3)){
+                    ?>
+                    <option value="<?= $row3['id_danhmuc']?>"> <?= $row3['id_danhmuc']?> - <?= $row3['tendanhmuc']?> </option>
+               <?php } ?>
+                             
+               </select>
         </td>
     </tr>
      <tr>
         <td>Trang thai</td>
         <td>
-             <input type="number" name="trangthai" >
+      <select name="trangthai" style="width:60%;height:50px">
+        <option value="1">Bat</option>
+        <option value="0">Tat</option>
+      </select>
         </td>
     </tr>
      <tr>    
@@ -135,7 +154,5 @@ if($query){
     </tr>
     </table>
 </form>
-
-
 </body>
 </html>

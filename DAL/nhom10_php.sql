@@ -112,9 +112,12 @@ CREATE TABLE `tbl_danhmuc` (
 --
 
 INSERT INTO `tbl_danhmuc` (`id_danhmuc`, `tendanhmuc`, `thutu`) VALUES
-(5, 'Đồng hồ trưng bày', 1),
-(6, 'Đồng hồ thời trang', 2),
-(7, 'Đồng hồ thông minh', 3);
+(1, 'Laptop ', 1),
+(2, 'Điện thoại', 2),
+(3, 'Đồng hồ thông minh', 3),
+(4, 'Tai nghe bluetooth', 4);
+
+
 
 -- --------------------------------------------------------
 
@@ -168,21 +171,21 @@ CREATE TABLE `tbl_sanpham` (
 --
 
 INSERT INTO `tbl_sanpham` (`id_sanpham`, `tensanpham`, `masanpham`, `giasanpham`, `soluong`, `hinhanh`, `tomtat`, `noidung`, `id_danhmuc`, `trangthai`) VALUES
-(5, 'Đồng hồ Thụy Sĩ', 'MHAQUA', 1000000, 2, 'mvw-ml005-02-nam-2-org.jpg', '', '', 5, 1),
-(6, 'CASIO 25.2 mm Nữ LTP-1130A-7BRDF', 'MHFBK', 1200000, 1, 'beu-pt1-den-thumb-1-1-600x600.jpg', 'Thiết kế của đồng hồ Sheen luôn bắt mắt người đeo bởi mặt đồng hồ đa dạng và tinh tế. Những mẫu đồng hồ dành riêng cho cô nàng có phong cách cá tính và ưa thích sự mới lạ. Điểm chung của d', '', 5, 0),
-(7, 'Đồng hồ MVW 40 mm Nam ML005-02', 'MHOKU', 1500000, 1, 'masstel-smart-hero-4g-xanh-duong-2-1-org.jpg', '', '', 5, 1),
-(8, 'Đồng hồ Masstel Smart Hero 4G', 'MHAQUACB', 500000, 12, 'befit-b3-vang-1.jpg', 'Sản phẩm đồng hồ mang thương hiệu MVW với nhiều mẫu mã năng động, trẻ trung nhưng không kém phần tinh tế và sang trọng, phù hợp với tất cả mọi người hoạt động ở nhiều lĩnh vực từ dân văn ph', '', 6, 0),
-(10, 'Đồng hồ cơ Rolex 3X', 'MTBHiV', 3000000, 3, 'mvw-ml005-02-nam-2-org.jpg', 'Sản phẩm đồng hồ mang thương hiệu MVW với nhiều mẫu mã năng động, trẻ trung nhưng không kém phần tinh tế và sang trọng, phù hợp với tất cả mọi người hoạt động ở nhiều lĩnh vực từ dân văn ph', '', 7, 0),
-(11, 'Đồng hồ thể thao A531', 'GDUGN0', 3000000, 1, 'masstel-smart-hero-4g-xanh-duong-2-1-org.jpg', 'Sản phẩm đồng hồ mang thương hiệu MVW với nhiều mẫu mã năng động, trẻ trung nhưng không kém phần tinh tế và sang trọng, phù hợp với tất cả mọi người hoạt động ở nhiều lĩnh vực từ dân văn ph', '', 7, 0),
-(12, 'Đồng hồ G-Shock Z123', 'MTBJG', 3500000, 1, 'g-shock-gba-900-1a6dr-nam-1.jpg', 'Sản phẩm đồng hồ mang thương hiệu MVW với nhiều mẫu mã năng động, trẻ trung nhưng không kém phần tinh tế và sang trọng, phù hợp với tất cả mọi người hoạt động ở nhiều lĩnh vực từ dân văn ph', '', 7, 0),
-(13, 'Đồng hồ SamSung A7', 'MHCBKOMI', 700000, 2, 'beu-active-1-2-1.jpg', 'Sản phẩm đồng hồ mang thương hiệu MVW với nhiều mẫu mã năng động, trẻ trung nhưng không kém phần tinh tế và sang trọng, phù hợp với tất cả mọi người hoạt động ở nhiều lĩnh vực từ dân văn ph', '', 6, 1),
-(14, 'Đồng hồ Apple Watch 5.0 Seris', 'MHGSBARA', 1700000, 2, 'beu-b3-den-1.jpg', 'Sản phẩm đồng hồ mang thương hiệu MVW với nhiều mẫu mã năng động, trẻ trung nhưng không kém phần tinh tế và sang trọng, phù hợp với tất cả mọi người hoạt động ở nhiều lĩnh vực từ dân văn ph', '', 5, 1),
-(15, 'Đồng hồ thông minh Smart Watch 2', 'MHSAWH', 1600000, 1, 'beu-pt1-den-thumb-1-1-600x600.jpg', 'Sản phẩm đồng hồ mang thương hiệu MVW với nhiều mẫu mã năng động, trẻ trung nhưng không kém phần tinh tế và sang trọng, phù hợp với tất cả mọi người hoạt động ở nhiều lĩnh vực từ dân văn ph', '', 5, 1),
-(16, 'Đồng hồ Rolex Thụy Sĩ', 'MHCBMATSURI', 15000000, 1, 'dong-ho-nam-citizen-bi5051-51a-trang-ga-1-org.jpg', 'Sản phẩm đồng hồ mang thương hiệu MVW với nhiều mẫu mã năng động, trẻ trung không kém phần tinh tế và sang trọng, phù hợp với tất cả mọi người hoạt động ở nhiều lĩnh vực từ dân văn phòng', '', 6, 0),
-(17, 'Đồng hồ thông minh Smart Watch 2', 'asdfdf', 13990000, 12, 'befit-b3-vang-1.jpg', 'Sản phẩm đồng hồ mang thương hiệu MVW với nhiều mẫu mã năng động, trẻ trung không kém phần tinh tế và sang trọng, phù hợp với tất cả mọi người hoạt động ở nhiều lĩnh vực', '', 7, 0),
-(18, 'Đồng hồ G-Shock Z123', 'fsddf', 2990000, 5, 'beu-pt1-den-thumb-1-1-600x600.jpg', 'Sản phẩm đồng hồ mang thương hiệu MVW với nhiều mẫu mã năng động, trẻ trung không kém phần tinh tế và sang trọng, phù hợp với tất cả mọi người hoạt động ở nhiều lĩnh vực', '', 7, 0),
-(19, 'Đồng hồ thể thao A531', 'vcf', 19990000, 3, 'mvw-ml005-02-nam-2-org.jpg', 'Sản phẩm đồng hồ mang thương hiệu MVW với nhiều mẫu mã năng động, trẻ trung không kém phần tinh tế và sang trọng, phù hợp với tất cả mọi người hoạt động ở nhiều lĩnh vực', '', 6, 0),
-(20, 'Đồng hồ SamSung A7', 'vcfs', 5999000, 6, 'masstel-smart-hero-4g-xanh-duong-2-1-org.jpg', 'Sản phẩm đồng hồ mang thương hiệu MVW với nhiều mẫu mã năng động, trẻ trung không kém phần tinh tế và sang trọng, phù hợp với tất cả mọi người hoạt động ở nhiều lĩnh vực', '', 6, 0);
+(5, 'Laptop gaming thuong hieu Dell', 'MHAQUA', 1000000, 2, 'LaptopGaming1.jpg', 'aaaaa', 'gggggg', 1, 1),
+(6, 'Laptop gaming thuong hieu Asus', 'MHFBK', 1200000, 1, 'LaptopGaming2.jpg', 'Laptop phu hop voi cac ban sinh vien cong nghe thong tin', 'Gia re', 1, 0),
+(7, 'Laptop gaming thuong hieu Apple', 'MHOKU', 1500000, 1, 'LaptopGaming3.jpg', 'Laptop phu hop voi cac ban sinh vien cong nghe thong tin', 'Gia re', 1, 1),
+(8, 'Laptop van phong ', 'MHAQUACB', 500000, 12, 'LaptopAsus.jpg', 'Laptop phu hop voi cac ban sinh vien cong nghe thong tin', 'Gia re', 1, 0),
+(10, 'Laptop van phong hang Asus', 'MTBHiV', 3000000, 3, 'LaptopDell2.jpg', 'Laptop phu hop voi cac ban sinh vien cong nghe thong tin', 'Gia re', 1, 0),
+(11, 'Laptop van phong hang HP', 'GDUGN0', 3000000, 1, 'LaptopDell3.jpg', 'Laptop phu hop voi cac ban sinh vien cong nghe thong tin', 'Gia re', 1, 0),
+(12, 'Laptop van phong hang Apple', 'MTBJG', 3500000, 1, 'LaptopGaming3.jpg', 'Laptop phu hop voi cac ban sinh vien cong nghe thong tin', 'Gia dat', 1, 0),
+(13, 'Điện thoại samsung mới nhất', 'MHCBKOMI', 700000, 2, 'DienthoaiSS.jpg', 'Dien thoai phu hop voi cac ban sinh vien cong nghe thong tin', 'Gia dat', 2, 1),
+(14, 'Điện thoại Oppo mới', 'MHGSBARA', 1700000, 2, 'DienThoaiOpple2.jpg', 'Dien thoai phu hop voi cac ban sinh vien cong nghe thong tin', 'Giam gia ', 2, 1),
+(15, 'Điện thoại Iphone 12 plus', 'MHSAWH', 1600000, 1, 'DienthoaiApple2.jpg', 'Dien thoai phu hop voi cac ban sinh vien cong nghe thong tin', 'Giam gia', 2, 1),
+(16, 'Điện thoại Nokia 11P ', 'MHCBMATSURI', 15000000, 1, 'DienthoaiNokia.jpg', 'Dien thoai phu hop voi cac ban sinh vien cong nghe thong tin', 'Giam gia', 2, 0),
+(17, 'Điện thoại Iphone 15 pro', 'asdfdf', 43990000, 12, 'DienthoaiApple1.jpg', 'Dien thoai phu hop voi cac ban sinh vien cong nghe thong tin', 'Gia re', 2, 0),
+(18, 'Tai nghe SamSung', 'AFFC', 2990000, 5, 'Tainghe1.jpg', 'Tai nghe phu hop voi cac ban sinh vien cong nghe thong tin', 'Giam gia', 4, 0),
+(19, 'Tai Nghe Apple 13', 'VNDC', 19990000, 3, 'Tainghe2.jpeg', 'Tai nghe phu hop voi cac ban sinh vien cong nghe thong tin', 'Giam gia', 4, 0),
+(20, 'Đồng hồ Samartphone', 'MESSI', 5999000, 6, 'Dongho1.jpg', 'Dong ho phu hop voi cac ban sinh vien cong nghe thong tin', 'Gia dat', 3, 0);
 
 -- --------------------------------------------------------
 
