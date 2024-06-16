@@ -43,6 +43,7 @@
 switch($url){
     case "Home":
            include("Home.php");
+              
            break;
        case "ADdanhmuc":
            include("ADdanhmuc.php");

@@ -1,11 +1,11 @@
-<?php 
-include "../DAL/KetNoi.php";
-global $conn;
-$sql="SELECT * FROM tbl_danhmuc";
-$query=$conn->query($sql);
-
+  <?php 
+  include "../DAL/KetNoi.php";
+  global $conn;
+    $timkiem="";
+    $timkiem=$_GET["search"];
+    $sql2="SELECT * FROM tbl_danhmuc WHERE tendanhmuc LIKE '%$timkiem%'";
+    $query2=$conn->query($sql2);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,14 +56,14 @@ $query=$conn->query($sql);
   <tbody>
   
     <tr>
-      <?php while($row=mysqli_fetch_array($query)): ?>
+      <?php while($row=mysqli_fetch_array($query2)): ?>
       <td class="text-center"> <?= $row["id_danhmuc"] ?> </td>
       <td class="text-center"><?= $row["tendanhmuc"] ?></td>
       <td class="text-center"><?= $row["thutu"]?></td>
    
       <td class="text-center">
      
-    <script>
+          <script>
         function confirmDelete() {
             return confirm("Bạn có chắc chắn muốn xóa danh muc nay khong?");
         }
@@ -78,12 +78,6 @@ $query=$conn->query($sql);
               <button class="bg-green-400 w-24 hover:bg-yellow-600 rounded-full"> Sua</button>
         </a>
         </div>
-        <!-- <div>
-         <a  href="../DAL/KHOADM.php?id=<?=$row['id_danhmuc']?>">
-              <button class="bg-blue-400 w-24 hover:bg-blue-600 rounded-full"> Khoa</button>
-        </a>
-        </div> -->
-
       </td>   
 </tr>
 <?php endwhile ?>
@@ -92,3 +86,4 @@ $query=$conn->query($sql);
    
 </body>
 </html>
+    

@@ -40,15 +40,30 @@ $query1 = $conn->query($sql1);
             border: 1px solid black;
             border-collapse: collapse;
             }
+            .boss_tt{
+              display: flex;
+              justify-content: space-around;
+              width:80%;
+              height:60px;
+            }
     </style>
+<?php 
 
+  include "Quantri2.php";
+
+
+?>
     <div class=" mx-32 container">
-    <div class="w-4/6 my-8">
-   <a href="../DAL/ADDSP.php" style="float:left;">
+ 
+      <div class="boss_tt">
+        <div>
+          <a href="../DAL/ADDSP.php" >
         <button class=" bg-yellow-500 w-32 h-10 rounded-lg  ">Them🐼</button>
         </a>
-     
-       <form method="GET" action="Sapxep.php">
+        </div>
+       
+     <div>
+    <form method="GET" action="Sapxep.php">
     <select name="sapxep" class="bg-emerald-500 w-40 h-10 rounded-lg ">
         <option value="gia_asc">Gia tang dan</option>
         <option value="gia_desc">Gia giam dan</option>
@@ -57,13 +72,21 @@ $query1 = $conn->query($sql1);
     </select>
     <input type="submit" class="bg-blue-400  w-24 h-10 rounded-lg" value="Sắp xếp">
       </form>
-            
-        <form method="GET" action="ADtimkiem.php" style="float:right;" class="mx-10">
+     </div>
+      
+         <div>
+        <form method="GET" action="ADtimkiem.php"  class="mx-10">
           <input type="text" class="w-48 h-10  rounded-lg border-2 " name="search" placeholder="Tim kiem....">
           <button type="submit" class="w-24 h-10 rounded-lg bg-green-400" >Tim kiem</button>
         </form>
+         </div>   
         
-    </div>
+
+
+      </div>
+       
+        
+
      
       
     <table class="table-auto border-collapse border border-slate-400 w-4/5 text-bold" >
@@ -123,7 +146,9 @@ $query1 = $conn->query($sql1);
        
         <div>
       <a  href="../DAL/KHOASP.php?id=<?=$row['id_sanpham']?>">
-              <button class="bg-blue-400 w-24 hover:bg-blue-600 rounded-full"> Khoa</button>
+              <button class="bg-blue-400 w-24 hover:bg-blue-600 rounded-full"> 
+                <?php $ac=$row['trangthai']==1?"Khoa":"Mo khoa";  echo $ac;?>
+              </button>
         </a>
         </div>
         
@@ -136,8 +161,8 @@ $query1 = $conn->query($sql1);
 </table>
 <div class="my-5 w-48 mx-auto">
 <?php   
-    echo "<div class='w-38 text-red-600'><a href='Quantri.php?index=ADsanpham'>Trang chu</a></div>";
-   echo "Trang";
+
+    echo "Trang";
  for ($i = 1; $i <= $total_pages; $i++): ?>
    <a href="ADsanpham.php?page=<?php echo $i?>"><button class="bg-pink-400 w-10 hover:bg-pink-600 rounded-full">
     <?php echo $i?>

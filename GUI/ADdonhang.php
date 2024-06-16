@@ -7,6 +7,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+    <?php
+  include "Quantri2.php";
+  
+  
+  ?>
     <table class="table-auto">
   <thead>
     <tr>

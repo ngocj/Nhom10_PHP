@@ -27,6 +27,12 @@ $query = $conn->query($sql);
             border: 1px solid black;
             border-collapse: collapse;
             }
+              .boss_tt{
+              display: flex;
+              justify-content: space-around;
+              width:80%;
+              height:60px;
+            }
     </style>
      <!DOCTYPE html>
      <html lang="en">
@@ -36,19 +42,21 @@ $query = $conn->query($sql);
         <title>Document</title>
          <script src="https://cdn.tailwindcss.com"></script>
      </head>
+       <?php
+  include "Quantri2.php";
+  
+  
+  ?>
      <body class="container mx-auto">
-          <table class="table-auto border-collapse border border-slate-400 w-4/5 text-bold" >
-  <thead>
-   
-      <div>
-    <form method="GET" action="ADtimkiem.php" style="float:right;" class="mx-20">
-          <input type="text" class="w-48 h-10  rounded-lg border-2 " name="search" placeholder="Tim kiem....">
-          <button type="submit" class="w-24 h-10 rounded-lg bg-green-400" >Tim kiem</button>
-    </form>
-      </div>
-
-    <div>
-     <form method="GET" action="Sapxep.php">
+       <div class="boss_tt">
+        <div>
+          <a href="../DAL/ADDSP.php" >
+        <button class=" bg-yellow-500 w-32 h-10 rounded-lg  ">Them🐼</button>
+        </a>
+        </div>
+       
+     <div>
+    <form method="GET" action="Sapxep.php">
     <select name="sapxep" class="bg-emerald-500 w-40 h-10 rounded-lg ">
         <option value="gia_asc">Gia tang dan</option>
         <option value="gia_desc">Gia giam dan</option>
@@ -56,9 +64,22 @@ $query = $conn->query($sql);
         <option value="soluong_desc">So luong giam dan</option>
     </select>
     <input type="submit" class="bg-blue-400  w-24 h-10 rounded-lg" value="Sắp xếp">
-    </form>
+      </form>
+     </div>
+      
+         <div>
+        <form method="GET" action="ADtimkiem.php"  class="mx-10">
+          <input type="text" class="w-48 h-10  rounded-lg border-2 " name="search" placeholder="Tim kiem....">
+          <button type="submit" class="w-24 h-10 rounded-lg bg-green-400" >Tim kiem</button>
+        </form>
+         </div>   
+        
+
+
       </div>
-     
+          <table class="table-auto border-collapse border border-slate-400 w-4/5 text-bold" >
+  <thead>
+       
     <tr class="bg-red-300 w-40 h-14  ">
       <th>ID</th>
       <th>Ma san pham</th>
@@ -111,9 +132,11 @@ $query = $conn->query($sql);
         </a>
         </div>
        
-        <div>
+          <div>
       <a  href="../DAL/KHOASP.php?id=<?=$row['id_sanpham']?>">
-              <button class="bg-blue-400 w-24 hover:bg-blue-600 rounded-full"> Khoa</button>
+              <button class="bg-blue-400 w-24 hover:bg-blue-600 rounded-full"> 
+                <?php $ac=$row['trangthai']==1?"Khoa":"Mo khoa";  echo $ac;?>
+              </button>
         </a>
         </div>
         
@@ -124,7 +147,7 @@ $query = $conn->query($sql);
      
     </table>
     <div class="my-10">
- <a href="ADsanpham.php" class="bg-yellow-500  p-2">Quay lai </a>
+ <a href="Quantri.php?index=ADsanpham" class="bg-yellow-500  p-2">Quay lai </a>
     </div>
    
      </body>
