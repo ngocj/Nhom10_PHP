@@ -1,3 +1,12 @@
+<?php
+ include "../../DAL/KetNoi.php";
+  global $conn;
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +17,11 @@
     <script src="https://unpkg.com/alpinejs" defer></script>
 </head>
 <body>
-    <nav class="bg-black border-gray-200 dark:bg-gray-900 w-full fixed">
+   <div>
+     <nav class="bg-black border-gray-200 dark:bg-gray-900 w-full ">
         <div class="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4">
             <a href="main.php" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="images/logo.svg" class="h-8" alt="Logo" />
+                <img src="../images/logo.svg" class="h-8" alt="Logo" />
                 <span class="self-center text-white text-2xl font-semibold whitespace-nowrap dark:text-white">ZYRO</span>
             </a>
             <div class="flex items-center md:order-2 space-x-1 md:space-x-2 rtl:space-x-reverse">
@@ -39,26 +49,22 @@
                         <div x-show="open" id="mega-menu-dropdown" class="absolute z-10 grid w-40 whitespace-nowrap grid-cols-2 text-sm bg-white border border-gray-100 rounded-lg shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700">
                             <div class="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
                                 <ul class="space-y-4" aria-labelledby="mega-menu-dropdown-button">
+                                  <?php    
+                                   $array=["","MayTinh.php","DienThoai.php","DongHo.php","TaiNghe.php"];
+                                  $sql="SELECT * FROM tbl_danhmuc";
+                                  $query=$conn->query($sql);
+                                  $i=0;
+                                  while($row=mysqli_fetch_array($query)):
+                                    $i++;
+                                  ?>
                                     <li>
-                                        <a href="#" class="text-gray-500 hover:text-blue-600 dark:hover:text-blue-500">
-                                            MÁY TÍNH
+                                        <a href="<?php echo $array[$i] ?>" class="text-gray-500 hover:text-blue-600 dark:hover:text-blue-500">
+                                            <?= $row["tendanhmuc"]?>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="#" class="text-gray-500 hover:text-blue-600 dark:hover:text-blue-500">
-                                            ĐIỆN THOẠI
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="text-gray-500 hover:text-blue-600 dark:hover:text-blue-500">
-                                            ĐỒNG HỒ
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="text-gray-500 hover:text-blue-600 dark:hover:text-blue-500">
-                                            PHỤ KIỆN
-                                        </a>
-                                    </li>
+
+                                    <?php endwhile;?>
+                                   
                                 </ul>
                             </div>
                         </div>
@@ -69,9 +75,13 @@
                     <li>
                         <a href="GioHang.php" class="text-white block py-2 px-3 text-gray-900 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">GIỎ HÀNG</a>
                     </li>
+                    <li>
+                        <a href="TinTuc.php" class="text-white block py-2 px-3 text-gray-900 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">TIN TỨC</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
+   </div>
 </body>
 </html>

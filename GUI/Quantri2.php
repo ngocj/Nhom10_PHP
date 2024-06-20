@@ -10,7 +10,7 @@
     <div class="container mx-auto my-5">
     <ul class="flex border-b">
          <li class=" mr-2">
-    <a class="bg-white hover:bg-yellow-400 inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold" href="Home">Trang chủ</a>
+    <a class="bg-white hover:bg-yellow-400 inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold" href="../GUI/HienThiSP/main.php">Trang chủ</a>
   </li>
   <li class=" mr-2">
     <a class="bg-white hover:bg-yellow-400 inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 hover:text-red-800 font-semibold" href="ADsanpham.php">Quản lý sản phẩm</a>

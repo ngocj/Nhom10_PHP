@@ -154,7 +154,7 @@ INSERT INTO `tbl_giohang` (`id_cart`, `id_khachhang`, `code_cart`, `cart_status`
 --
 
 CREATE TABLE `tbl_sanpham` (
-  `id_sanpham` int(11) NOT NULL,
+  `id_sanpham` int(11) NOT NULL PRIMARY KEY,
   `tensanpham` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `masanpham` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `giasanpham` float NOT NULL,
@@ -162,7 +162,7 @@ CREATE TABLE `tbl_sanpham` (
   `hinhanh` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `tomtat` tinytext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `noidung` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `id_danhmuc` int(11) NOT NULL,
+  `id_danhmuc` int(11) NOT NULL FOREIGN KEY,
   `trangthai` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
